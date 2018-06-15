@@ -1,0 +1,858 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>/home/sven/git/aima-exercises-solution/Aima-Exercises-Solution/Chapter 2/.README.md.html</title>
+
+
+<style type="text/css">
+body {
+	color: #333;
+	font: 13px/1.4 "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	background: transparent;
+	color: #4183c4;
+	text-decoration: none;
+}
+
+a:active,
+a:hover {
+	outline: 0 none;
+	text-decoration: underline;
+}
+
+abbr[title] {
+	border-bottom: 1px dotted;
+}
+
+b,
+strong {
+	font-weight: bold;
+}
+
+dfn {
+	font-style: italic;
+}
+h1 {
+	font-size: 2em;
+	margin: 0.67em 0;
+}
+mark {
+	background: #ff0;
+	color: #000;
+}
+small {
+	font-size: 80%;
+}
+sub, sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sup {
+	top: -0.5em;
+}
+sub {
+	bottom: -0.25em;
+}
+img {
+	border: 0 none;
+}
+svg:not(:root) {
+	overflow: hidden;
+}
+figure {
+	margin: 1em 40px;
+}
+hr {
+	box-sizing: content-box;
+	height: 0;
+}
+
+code,
+kbd,
+pre,
+samp {
+	font-family: monospace,monospace;
+	font-size: 1em;
+}
+
+pre {
+	overflow: auto;
+	font: 12px Consolas,"Liberation Mono",Menlo,Courier,monospace;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+.markdown-body {
+	padding: 30px;
+	font-size: 16px;
+	line-height: 1.6;
+	word-wrap: break-word;
+}
+
+.markdown-body>*:first-child {
+	margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+	margin-bottom: 0 !important;
+}
+
+.markdown-body .absent {
+	color: #c00;
+}
+
+.markdown-body .anchor {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	display: block;
+	padding-right: 6px;
+	padding-left: 30px;
+	margin-left: -30px;
+}
+
+.markdown-body .anchor:focus {
+	outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+	position: relative;
+	margin-top: 1em;
+	margin-bottom: 16px;
+	font-weight: bold;
+	line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+	display: none;
+	color: #000;
+	vertical-align: middle;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+	padding-left: 8px;
+	margin-left: -30px;
+	line-height: 1;
+	text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+	display: inline-block;
+}
+
+.markdown-body h1 tt,
+.markdown-body h1 code,
+.markdown-body h2 tt,
+.markdown-body h2 code,
+.markdown-body h3 tt,
+.markdown-body h3 code,
+.markdown-body h4 tt,
+.markdown-body h4 code,
+.markdown-body h5 tt,
+.markdown-body h5 code,
+.markdown-body h6 tt,
+.markdown-body h6 code {
+	font-size: inherit;
+}
+
+.markdown-body h1 {
+	padding-bottom: 0.3em;
+	font-size: 2.25em;
+	line-height: 1.2;
+	border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+	padding-bottom: 0.3em;
+	font-size: 1.75em;
+	line-height: 1.225;
+	border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+	font-size: 1.5em;
+	line-height: 1.43;
+}
+
+.markdown-body h4 {
+	font-size: 1.25em;
+}
+
+.markdown-body h5 {
+	font-size: 1em;
+}
+
+.markdown-body h6 {
+	font-size: 1em;
+	color: #777;
+}
+
+.markdown-body p,.markdown-body blockquote,
+.markdown-body ul,.markdown-body ol,
+.markdown-body dl,.markdown-body table,
+.markdown-body pre {
+	margin-top: 0;
+	margin-bottom: 16px;
+}
+
+.markdown-body hr {
+	height: 4px;
+	padding: 0;
+	margin: 16px 0;
+	background-color: #e7e7e7;
+	border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+	padding-left: 2em;
+}
+
+.markdown-body ul.no-list,
+.markdown-body ol.no-list {
+	padding: 0;
+	list-style-type: none;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.markdown-body li>p {
+	margin-top: 16px;
+}
+
+.markdown-body dl {
+	padding: 0;
+}
+
+.markdown-body dl dt {
+	padding: 0;
+	margin-top: 16px;
+	font-size: 1em;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.markdown-body dl dd {
+	padding: 0 16px;
+	margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+	padding: 0 15px;
+	color: #777;
+	border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+	margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+	margin-bottom: 0;
+}
+
+.markdown-body table {
+	display: block;
+	width: 100%;
+	overflow: auto;
+	word-break: normal;
+	word-break: keep-all;
+}
+
+.markdown-body table th {
+	font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+	padding: 6px 13px;
+	border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+	background-color: #fff;
+	border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+	background-color: #f8f8f8;
+}
+
+.markdown-body img {
+	max-width: 100%;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.markdown-body span.frame {
+	display: block;
+	overflow: hidden;
+}
+
+.markdown-body span.frame>span {
+	display: block;
+	float: left;
+	width: auto;
+	padding: 7px;
+	margin: 13px 0 0;
+	overflow: hidden;
+	border: 1px solid #ddd;
+}
+
+.markdown-body span.frame span img {
+	display: block;
+	float: left;
+}
+
+.markdown-body span.frame span span {
+	display: block;
+	padding: 5px 0 0;
+	clear: both;
+	color: #333;
+}
+
+.markdown-body span.align-center {
+	display: block;
+	overflow: hidden;
+	clear: both;
+}
+
+.markdown-body span.align-center>span {
+	display: block;
+	margin: 13px auto 0;
+	overflow: hidden;
+	text-align: center;
+}
+
+.markdown-body span.align-center span img {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.markdown-body span.align-right {
+	display: block;
+	overflow: hidden;
+	clear: both;
+}
+
+.markdown-body span.align-right>span {
+	display: block;
+	margin: 13px 0 0;
+	overflow: hidden;
+	text-align: right;
+}
+
+.markdown-body span.align-right span img {
+	margin: 0;
+	text-align: right;
+}
+
+.markdown-body span.float-left {
+	display: block;
+	float: left;
+	margin-right: 13px;
+	overflow: hidden;
+}
+
+.markdown-body span.float-left span {
+	margin: 13px 0 0;
+}
+
+.markdown-body span.float-right {
+	display: block;
+	float: right;
+	margin-left: 13px;
+	overflow: hidden;
+}
+
+.markdown-body span.float-right>span {
+	display: block;
+	margin: 13px auto 0;
+	overflow: hidden;
+	text-align: right;
+}
+
+.markdown-body code,.markdown-body tt {
+	padding: 0;
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
+	margin: 0;
+	font-size: 85%;
+	background-color: rgba(0,0,0,0.04);
+	border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after,
+.markdown-body tt:before,
+.markdown-body tt:after {
+	letter-spacing: -0.2em;
+	content: "\00a0";
+}
+
+.markdown-body code br,
+.markdown-body tt br {
+	display: none;
+}
+
+.markdown-body del code {
+	text-decoration: inherit;
+}
+
+.markdown-body pre>code {
+	padding: 0;
+	margin: 0;
+	font-size: 100%;
+	word-break: normal;
+	white-space: pre;
+	background: transparent;
+	border: 0;
+}
+
+.markdown-body .highlight {
+	margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+	padding: 16px;
+	overflow: auto;
+	font-size: 85%;
+	line-height: 1.45;
+	background-color: #f7f7f7;
+	border-radius: 3px;
+}
+
+.markdown-body .highlight pre {
+	margin-bottom: 0;
+	word-break: normal;
+}
+
+.markdown-body pre {
+	word-wrap: normal;
+}
+
+.markdown-body pre code,
+.markdown-body pre tt {
+	display: inline;
+	max-width: initial;
+	padding: 0;
+	margin: 0;
+	overflow: initial;
+	line-height: inherit;
+	word-wrap: normal;
+	background-color: transparent;
+	border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after,
+.markdown-body pre tt:before,
+.markdown-body pre tt:after {
+	content: normal;
+}
+
+.highlight .pl-coc,
+.highlight .pl-entl,
+.highlight .pl-entm,
+.highlight .pl-eoa,
+.highlight .pl-mai .pl-sf,
+.highlight .pl-mm,
+.highlight .pl-pdv,
+.highlight .pl-sc,
+.highlight .pl-som,
+.highlight .pl-sr,
+.highlight .pl-v,
+.highlight .pl-vpf {
+	color: #0086b3;
+}
+.highlight .pl-eoac,
+.highlight .pl-mdht,
+.highlight .pl-mi1,
+.highlight .pl-mri,
+.highlight .pl-va,
+.highlight .pl-vpu {
+	color: #008080;
+}
+.highlight .pl-c,
+.highlight .pl-pdc {
+	color: #b4b7b4;
+	font-style: italic;
+}
+.highlight .pl-k,
+.highlight .pl-ko,
+.highlight .pl-kolp,
+.highlight .pl-mc,
+.highlight .pl-mr,
+.highlight .pl-ms,
+.highlight .pl-s,
+.highlight .pl-sok,
+.highlight .pl-st {
+	color: #6e5494;
+}
+.highlight .pl-ef,
+.highlight .pl-enf,
+.highlight .pl-enm,
+.highlight .pl-entc,
+.highlight .pl-eoi,
+.highlight .pl-sf,
+.highlight .pl-smc {
+	color: #d12089;
+}
+.highlight .pl-ens,
+.highlight .pl-eoai,
+.highlight .pl-kos,
+.highlight .pl-mh .pl-pdh,
+.highlight .pl-mp,
+.highlight .pl-pde,
+.highlight .pl-stp {
+	color: #458;
+}
+.highlight .pl-enti {
+	color: #d12089;
+	font-weight: bold;
+}
+.highlight .pl-cce,
+.highlight .pl-enc,
+.highlight .pl-kou,
+.highlight .pl-mq {
+	color: #f93;
+}
+.highlight .pl-mp1 .pl-sf {
+	color: #458;
+	font-weight: bold;
+}
+.highlight .pl-cos,
+.highlight .pl-ent,
+.highlight .pl-md,
+.highlight .pl-mdhf,
+.highlight .pl-ml,
+.highlight .pl-pdc1,
+.highlight .pl-pds,
+.highlight .pl-s1,
+.highlight .pl-scp,
+.highlight .pl-sol {
+	color: #df5000;
+}
+.highlight .pl-c1,
+.highlight .pl-cn,
+.highlight .pl-pse,
+.highlight .pl-pse .pl-s2,
+.highlight .pl-vi {
+	color: #a31515;
+}
+.highlight .pl-mb,
+.highlight .pl-pdb {
+	color: #df5000;
+	font-weight: bold;
+}
+.highlight .pl-mi,
+.highlight .pl-pdi {
+	color: #6e5494;
+	font-style: italic;
+}
+.highlight .pl-ms1 {
+	background-color: #f5f5f5;
+}
+.highlight .pl-mdh,
+.highlight .pl-mdi {
+	font-weight: bold;
+}
+.highlight .pl-mdr {
+	color: #0086b3;
+	font-weight: bold;
+}
+.highlight .pl-s2 {
+	color: #333;
+}
+.highlight .pl-ii {
+	background-color: #df5000;
+	color: #fff;
+}
+.highlight .pl-ib {
+	background-color: #f93;
+}
+.highlight .pl-id {
+	background-color: #a31515;
+	color: #fff;
+}
+.highlight .pl-iu {
+	background-color: #b4b7b4;
+}
+.highlight .pl-mo {
+	color: #969896;
+}
+
+</style>
+
+
+<script type="text/javascript">
+
+function getDocumentScrollTop() 
+{
+   var res = document.body.scrollTop || document.documentElement.scrollTop || window.pageYOffset || 0;
+   // alert(res);
+   return res;
+}
+
+function setDocumentScrollTop(ypos) 
+{
+	window.scrollTo(0, ypos);
+}
+
+</script>
+
+
+</head>
+<body class="markdown-body">
+<h1> <a id="chapter-2---intelligent-agents" class="anchor" href="#chapter-2---intelligent-agents" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Chapter 2 - Intelligent Agents</h1> 
+<p>TODO: 1-13</p> 
+<h2> <a id="question-21" class="anchor" href="#question-21" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Question 2.1</h2> 
+<p>Let us examine the rationality of various vacuum-cleaner agent functions.</p> 
+<ol> 
+ <li>Show that the simple vacuum-cleaner agent function described in Figure 2.3 is indeed rational under the assumptions listed on page 38.</li> 
+ <li>Describe a rational agent function for the case in which each movement costs one point. Does the corresponding agent program require an internal state?</li> 
+ <li>Discuss possible agent designs for the cases in which clean squares can become dirty and the geography of the environment is unknown. Does it make sense for the agent to learn from its experience in these cases? If so, what should it learn? If not, why not?</li> 
+</ol> 
+<h3> <a id="solution" class="anchor" href="#solution" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Solution</h3> 
+<ol> 
+ <li> <p>Let s(k) the agent's performance score at time step k.<br /> With a case distinction, at time step k, we have:</p> 
+  <ul> 
+   <li> <p>(a) The environment is clean:<br /> Independent of the agent's action, we have s(k+1) = s(k) + 2.<br /> Any action would be rational.</p> </li> 
+   <li> <p>(b) The agent is on a dirty square, and the other is clean:<br /> If the agent cleans, we have s(k + 1) = s(k) + 2, and we go to situation (a).<br /> If the agent moves, we have s(k + 1) = s(k) + 1, and we go to situation (c).<br /> As the agent would get 2 points increase at each time step after cleaning, and at least 1 points less by moving, we can conclude that its rational to clean in this situation.</p> </li> 
+   <li> <p>(c) The agent is on a clean square, and the other is dirty:<br /> If the agent cleans, we have s(k+1) = s(k) + 1, and we stay in situation (c).<br /> If the agent moves, we have s(k+1) = s(k) + 1, and we go to situation (b).<br /> As the agent can get more points by going to situation (b), it is rational for it to move.</p> </li> 
+   <li> <p>(d) Both squares are dirty:<br /> If the agent cleans, we have s(k+1) = s(k) + 1 and we go to situation (c).<br /> If the agent moves, we have s(k+1) = s(k) and we stay in situation (d).<br /> As the agent always gets more point by cleaning and going to situation (c) it would be rational to clean.</p> </li> 
+  </ul> <p>From our case distinction, we can see that the agent described in Figure 2.3 is always rational.</p> </li> 
+ <li> <p>In this situation a rational agent would clean the first square if it is dirty, move, and then clean in each time step. This agent requires an internal state to remember if it has already moved, else it wouldn't have enough information to know if it is allowed to move.</p> </li> 
+ <li> <p>A rational agent in this task environment would need to learn to the geography of the place, by exploring, and to look for patterns in how the dirt comes up.</p> <p>If the pattern is totally random it would be best to find a route through the environment which visits all squares exactly once, an use it to <em>patrol</em> the environment. But finding such routes (Hamiltonian Circles) is a computationally hard problem, so it could maybe be more rational to find an approximation instead of searching the best route for hours.<br /> If there is no such route, it would need to find a suboptimal route which allows it to still visit most squares efficiently, while ignoring the ones which are counterproductive to clean.<br /> If there is a pattern, the agent should be able to exploit it to maximize its performance.</p> <p>To learn the geography, the agent could treat the environment as a graph and execute a depth first search. To find patterns it should try to analyze its percept sequence, while assuming the random pattern until it hasn't found a better pattern.</p> </li> 
+</ol> 
+<h2> <a id="question-22" class="anchor" href="#question-22" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Question 2.2</h2> 
+<p>Write an essay on the relationship between evolution and one or more of autonomy, intelligence and learning.</p> 
+<h3> <a id="solution-1" class="anchor" href="#solution-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Solution</h3> 
+<p>Skipped</p> 
+<h2> <a id="question-23" class="anchor" href="#question-23" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Question 2.3</h2> 
+<p>For each of the following assertions, say whether it is true of false and support your answer with examples of counterexamples where appropriate.</p> 
+<ol> 
+ <li>An agent that senses only partial information about the state cannot be perfectly rational.</li> 
+ <li>There exists task environments in which no pure reflex agent can behave normally.</li> 
+ <li>The exists a task environment in which every agent is rational.</li> 
+ <li>The input to an agent program is the same as the input to the agent function.</li> 
+ <li>Every agent function is implementable by some program/machine combination.</li> 
+ <li>Suppose an agent selects its action uniformly at random from the set of possible actions. There exist a deterministic task environment in which this agent is rational.</li> 
+ <li>It is possible for a given agent to be perfectly rational in two distinct task environments.</li> 
+ <li>Every agent is rational in an unobservable environment.</li> 
+ <li>A perfectly rational poker-playing agent never loses.</li> 
+</ol> 
+<h3> <a id="solution-2" class="anchor" href="#solution-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Solution</h3> 
+<ol> 
+ <li>False, in exercise 2.1 we showed that the vacuum cleaner agent described in Figure 2.3 is perfectly rational for its task environment, albeit it has only partial information on the state.</li> 
+ <li>True, we have given an example of this in exercise 2.1.2</li> 
+ <li>True, if the performance measure is a constant function, or a function which isn't influenced by any actions an agent can perform, then all agents are rational.</li> 
+ <li>False, an agent function takes a percept sequence as input, while the program only takes percepts.</li> 
+ <li>False, only the agent functions we can describe with algorithm are implementable by an agent program. For example we can't implement an agent program which solves the halting problem, when each percept is an instance of the problem.</li> 
+ <li>True, for example in a deterministic task environment with a performance score defined as in (3).</li> 
+ <li>True, for two task environments like in (3).</li> 
+ <li>False, if the task environment is at least partially known, we can use this knowledge to build a rational agent.<br /> For example, if the vacuum-cleaner world described on page 38 were unobservable, it would still be rational for an agent to repeat the actions <em>Clean</em>, <em>Left</em>, <em>Clean</em>, <em>Right</em> in loop, instead of only moving.</li> 
+ <li>False, because in poker, a player's skill can only improve the probability he wins. But the win probability can never be 100% against any opponent, simply because there is luck involved.</li> 
+</ol> 
+<h2> <a id="question-24" class="anchor" href="#question-24" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Question 2.4</h2> 
+<p>For each of the following activities, gives a PEAS description of the task environment and characterize it in terms of the properties listed in Section 2.3.2</p> 
+<ol> 
+ <li>Performing a gymnastics floor routine.</li> 
+ <li>Exploring the subsurface oceans of Titan.</li> 
+ <li>Playing soccer.</li> 
+ <li>Shopping for used AI books on the Internet.</li> 
+ <li>Practicing tennis against a wall.</li> 
+ <li>Performing a high jump.</li> 
+ <li>Bidding on an item at an auction.</li> 
+</ol> 
+<h3> <a id="solution-3" class="anchor" href="#solution-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Solution</h3> 
+<table> 
+ <thead> 
+  <tr> 
+   <th>Agent type</th> 
+   <th>Performance Measure</th> 
+   <th>Environment</th> 
+   <th>Actuators</th> 
+   <th>Sensors</th> 
+   <th>Notes</th> 
+  </tr> 
+ </thead> 
+ <tbody> 
+  <tr> 
+   <td>Gymnast</td> 
+   <td>Judge score, accuracy</td> 
+   <td>Gymnastic floor</td> 
+   <td>Muscles</td> 
+   <td>Touch sensors, accelerometer, eyes</td> 
+   <td>We assume a human-like gymnast</td> 
+  </tr> 
+  <tr> 
+   <td>Submarine</td> 
+   <td>Amount of ocean explored, number of discoveries, safety, energy consumption</td> 
+   <td>Subsurface ocean of Titan, rocks, water, debris, lifeforms (improbable)</td> 
+   <td>Motors, robotic arms, wireless data transmitter</td> 
+   <td>Thermometer, pressure sensor, touch sensors, accelerometer</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>Soccer player</td> 
+   <td>Goals scored against opponent, goals against team prevented, time the ball, accuracy in kicks, ecc.</td> 
+   <td>Soccer field, soccer players, referee, ball</td> 
+   <td>Feet, legs, hands, arms, head</td> 
+   <td>Touch sensors, accelerometer, eyes</td> 
+   <td>We assume a human-like player</td> 
+  </tr> 
+  <tr> 
+   <td>Shopper</td> 
+   <td>Amount of books bought, duplicates, quality of books, classify correctly</td> 
+   <td>Internet browser</td> 
+   <td>Virtual keyboard, virtual mouse</td> 
+   <td>Rendered web pages</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>Tennis player</td> 
+   <td>Amount of hits in a row, average speed of the ball, variance of hit positions</td> 
+   <td>Wall, tennis ball, tennis racket</td> 
+   <td>Arms, legs</td> 
+   <td>Accelerometer, eyes</td> 
+   <td>We assume a human-like player</td> 
+  </tr> 
+  <tr> 
+   <td>High jumper</td> 
+   <td>Jump height, landing</td> 
+   <td>Horizontal bar</td> 
+   <td>Legs, arms, head</td> 
+   <td>Touch sensors, accelerometer, eyes</td> 
+   <td>We assume a human-like player</td> 
+  </tr> 
+  <tr> 
+   <td>Bidder</td> 
+   <td>Amount of won objects, bid/value ratio</td> 
+   <td>Auction, other bidders</td> 
+   <td>Voice synthesizer</td> 
+   <td>Microphone</td> 
+   <td></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<h2> <a id="question-25" class="anchor" href="#question-25" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Question 2.5</h2> 
+<p>Define in your own words the following terms: agent, agent function, agent program, rationality, autonomy, reflex agent, model-based agent, goal-based agent, utility-based agent, learning agent.</p> 
+<h3> <a id="solution-4" class="anchor" href="#solution-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Solution</h3> 
+<p>Skipped</p> 
+<h2> <a id="question-26" class="anchor" href="#question-26" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Question 2.6</h2> 
+<p>This exercise explores the differences between agent functions and agent programs.</p> 
+<ol> 
+ <li>Can there be more than one agent program that implements a given agent function. Give an example, or show why one is not possible.</li> 
+ <li>Are there agent functions that cannot be implemented by any agent program?</li> 
+ <li>Given a fixed machine architecture, does each agent agent program implement exactly one agent function?</li> 
+ <li>Given an architecture with <em>n</em> bits of of storage, how many different possible agent programs are there?</li> 
+ <li>Suppose we keep the agent program fixed but speed up the machine by a factor of two. Does that change the agent function?</li> 
+</ol> 
+<h3> <a id="solution-5" class="anchor" href="#solution-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Solution</h3> 
+<p>Skipped</p> 
+<h2> <a id="question-27" class="anchor" href="#question-27" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Question 2.7</h2> 
+<p>Write pseudocode agent programs for the goal-based and utility-based agents.</p> 
+<h3> <a id="solution-6" class="anchor" href="#solution-6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Solution</h3> 
+<pre><code>function GOAL-BASED-MODEL-BASED-AGENT(percept) returns an action
+  persistent: state // The agent's current conception of the world state
+              model // A description of how the next state depends on the current state and action
+              goals // A set of goals 
+              action // The most recent action, initially none
+
+  state &lt;- UPDATE-STATE(state, action, percept, model)
+  actionEffectPairs &lt;- GET-ACTION-EFFECT-PAIRS(state, model)
+  goodActions &lt;- GOAL-MATCH(actionEffectPairs, goals)
+  action &lt;- CHOOSE-ANY(goodActions)
+</code></pre> 
+<pre><code>function UTILITY-BASED-MODEL-BASED-AGENT(percept) returns an action
+  persistent: state // The agent's current conception of the world state
+              model // A description of how the next state depends on the current state and action
+              utility // A utility function  
+              action // The most recent action, initially none
+
+  state &lt;- UPDATE-STATE(state, action, percept, model)
+  actionEffectPairs &lt;- GET-ACTION-EFFECT-PAIRS(state, model)
+  actionUtilityPairs &lt;- COMPUTE-UTILITIES(actionEffectPairs, utilities)
+  bestActionUtilityPair &lt;- CHOOSE-BEST-UTILITY(actionUtilityPairs)
+  action &lt;- bestActionUtilityPair.action
+</code></pre> 
+<h2> <a id="question-28" class="anchor" href="#question-28" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Question 2.8</h2> 
+<p>Consider a simple thermostat that turns on a furnace when the temperature is at least 3 degrees below the setting, and turns off a furnace when the temperature is at least 3 degrees above the setting. Is a thermostat an instance of a simple reflex agent, a model-based reflex agent, or a goal based agent?</p> 
+<h3> <a id="solution-7" class="anchor" href="#solution-7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Solution</h3> 
+<p>The thermostat is an instance of a simple reflex agent, since it has no knowledge of its goal, and has no internal state.</p> 
+<hr /> 
+<p>The following exercises all concern the implementation of environments and agent for the vacuum-cleaner world.</p> 
+<h2> <a id="question-29" class="anchor" href="#question-29" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Question 2.9</h2> 
+<p>Implement a performance-measuring environment simulator for the vacuum-cleaner world depicted in Figure 2.2 and specified on page 38. Your implementation should be modular so that the sensors, actuators, and environment characteristics (size, shape, dirt placement, etc.) can be changed easily. (<em>Note:</em> for some choices of programming language and operating system there are already implementations in the online code repository.)</p> 
+<h3> <a id="solution-8" class="anchor" href="#solution-8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Solution</h3> 
+<p>Skipped</p> 
+<h2> <a id="question-210" class="anchor" href="#question-210" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Question 2.10</h2> 
+<p>Consider a modified version of the vacuum environment in Exercise 2.9, in which the agent is penalized one point for each movement.</p> 
+<ol> 
+ <li>Can a simple reflex agent be perfectly rational for this environment? Explain.</li> 
+ <li>What about a reflex agent with state? Design such an agent.</li> 
+ <li>How do your answers to <strong>1</strong> and <strong>2</strong> change if the agent's percepts give it the clean/dirty status of every square in the environment?</li> 
+</ol> 
+<h3> <a id="solution-9" class="anchor" href="#solution-9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Solution</h3> 
+<ol> 
+ <li>No, such an agent needs to remember the state of the world to know if it should still look for dirt.</li> 
+ <li>Yes, we'll implement it as described in the solution of exercise 2.1.2</li> 
+ <li>The answer to <strong>1</strong> would change, since the agent will have the necessary informations to be perfectly rational, the answer of <strong>2</strong> would remain the same.</li> 
+</ol> 
+<h2> <a id="question-211" class="anchor" href="#question-211" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Question 2.11</h2> 
+<p>Consider a modified version of the vacuum environment in Exercise 2.9, in which the geography of the environment -is extent, boundaries, and obstacles- is unknown, as is the initial dirt configuration. (The agent can go <em>Up</em> and <em>Down</em> as well as <em>Left</em> and <em>Right</em>.)</p> 
+<ol> 
+ <li>Can a simple reflex agent be perfectly rational for this environment? Explain.</li> 
+ <li>Can a simple reflex agent with a <em>randomized</em> agent function outperform a simple reflex agent? Design such an agent and measure its performance on several environments.</li> 
+ <li>Can you design an environment in which your randomized agent will perform poorly? Show your results.</li> 
+ <li>Can a reflex agent with state outperform a simple reflex agent? Design such an agent and measure its performance on several environments. Can you design a rational agent of this type?</li> 
+</ol> 
+<h3> <a id="solution-10" class="anchor" href="#solution-10" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Solution</h3> 
+<h2> <a id="question-212" class="anchor" href="#question-212" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Question 2.12</h2> 
+<p>Repeat exercise 2.11 for the case in which the location sensor is replaced with a &quot;bump&quot; sensor that detects the agent's attempts to move into an obstacle or to cross the boundaries of the environment. Suppose the bump sensor stops working; how should the agent behave?</p> 
+<h3> <a id="solution-11" class="anchor" href="#solution-11" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Solution</h3> 
+<h2> <a id="question-213" class="anchor" href="#question-213" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Question 2.13</h2> 
+<p>The vacuum environments in the preceding exercises have all been deterministic. Discuss possible agent programs for each of the following stochastic versions:</p> 
+<ol> 
+ <li>Murphy's law: twenty-five percent of the time, the <em>Suck</em> action fails to clean the floor if it is dirty and deposits dirt onto the floor if the floor is clean. How is your agent program affected if the dirt sensor gives the wrong answer 10% of the time?</li> 
+ <li>Small children: At each time step, each clean square has a 10% chance of becoming dirty. Can you come up with a rational agent design for this case?</li> 
+</ol> 
+<h3> <a id="solution-12" class="anchor" href="#solution-12" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Solution</h3>
+</body>
+</html>
